@@ -3,16 +3,13 @@ let letters =['A','B','C','D','E','F','G','H'];
 
 ok_button.onclick = function () {
     let position = document.getElementById("position").value;
-
-    if (position.length !== 2 || isNaN(Number(position.split('')[1]))){
-        alert('Неверный формат ввода!!!');
-        return;
-    }
-
     let x = getLetterPosition(position.split('')[0]);
     let y = Number(position.split('')[1]);
 
-
+    if (position.length !== 2 || isNaN(y) || !letters.includes(position.split('')[0].toUpperCase())){
+        alert('Неверный формат ввода!!!');
+        return;
+    }
 
     if (x > 8 || y > 8 || x < 1 || y < 1) {
         alert('Вы вышли за пределы шахматной доски!!!');
